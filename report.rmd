@@ -1,0 +1,27 @@
+---
+title: "Pull Request practical"
+author: "James Louis Nguyen"
+date: "April 23, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+  library(COVID19)
+```
+
+```{r}
+covid_us <- covid19("USA", level= 2)
+
+#deaths in the US
+
+covid_us %>%
+  ggplot(aes(x=date, y=deaths)) + 
+  geom_point() + 
+  facet_wrap(~id)
+```
+
